@@ -20,6 +20,26 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
+import UIObj from 'dict/UIObj'
+import { searchObjData, saveObjData } from '@/api/dict'
+
+Object.assign(UIObj, {
+  requestSave(params, callback) {
+    saveObjData(params).then(reponse => {
+      if (callback && callback instanceof Function) {
+        callback(reponse.status === 200, reponse.data)
+      }
+    })
+  },
+  requestSearch(params, callback) {
+    searchObjData(params).then(reponse => {
+      if (callback && callback instanceof Function) {
+        callback(reponse.status === 200, reponse.data)
+      }
+    })
+  }
+})
+
 /**
  * If you don't want to use mock-server
  * you want to use mockjs for request interception

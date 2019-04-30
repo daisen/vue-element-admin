@@ -49,7 +49,8 @@ module.exports = {
     name: name,
     resolve: {
       alias: {
-        '@': resolve('src')
+        '@': resolve('src'),
+        'dict': resolve('src/vendor/ui-obj')
       }
     }
   },
